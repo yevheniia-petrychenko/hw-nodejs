@@ -38,7 +38,7 @@ function getContactById(contactId) {
 }
 
 function removeContact(contactId) {
-  contactId = toString(contactId);
+  contactId = Number(contactId);
   fs.readFile(contactsPath, (err, data) => {
     if (err) {
       console.error(err);
@@ -61,7 +61,7 @@ function removeContact(contactId) {
       });
     }
     console.log('The contact was removed');
-    console.table(contacts);
+    console.table(filteredContacts);
   });
 }
 
