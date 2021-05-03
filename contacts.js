@@ -29,11 +29,12 @@ function getContactById(contactId) {
       process.exit(1);
     }
     const contacts = JSON.parse(content);
-    contacts.forEach(contact => {
-      if (contact.id === contactId) {
-        return console.table(contact);
-      }
-    });
+    gotContact = contacts.find(contact => contact.id === contactId);
+    if (gotContact) {
+      console.table([gotContact]);
+    } else {
+      process.exit(1);
+    }
   });
 }
 
